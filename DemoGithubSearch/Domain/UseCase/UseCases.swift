@@ -8,9 +8,17 @@
 
 import Foundation
 
-class UseCases {
+protocol HasSearchUseCase {
+  var searchUseCase: SearchUseCase? { get }
+}
 
-  init() {
-    
+struct UseCases: HasSearchUseCase {
+
+  var searchUseCase: SearchUseCase?
+
+  init(
+    search: SearchUseCase? = nil
+  ) {
+    searchUseCase = search
   }
 }

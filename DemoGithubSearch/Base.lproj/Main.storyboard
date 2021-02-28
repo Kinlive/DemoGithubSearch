@@ -15,9 +15,44 @@
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="CGJ-WV-gyx" userLabel="keywordTextField">
+                                <rect key="frame" x="132" y="94" width="150" height="34"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="150" id="Ggk-Ei-fnG"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="W0G-Ky-FKY" userLabel="perPageTextField">
+                                <rect key="frame" x="132" y="153" width="150" height="34"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="150" id="7en-hW-8Zz"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tIX-kc-Arb">
+                                <rect key="frame" x="183" y="433" width="48" height="30"/>
+                                <state key="normal" title="Search"/>
+                            </button>
+                        </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="CGJ-WV-gyx" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="50" id="GON-PK-s7y"/>
+                            <constraint firstItem="tIX-kc-Arb" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="Ggd-rq-YE4"/>
+                            <constraint firstItem="W0G-Ky-FKY" firstAttribute="centerX" secondItem="CGJ-WV-gyx" secondAttribute="centerX" id="SJI-rc-eyp"/>
+                            <constraint firstItem="W0G-Ky-FKY" firstAttribute="top" secondItem="CGJ-WV-gyx" secondAttribute="bottom" constant="25" id="Wov-zI-IeO"/>
+                            <constraint firstItem="CGJ-WV-gyx" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="aIt-GX-Hcj"/>
+                            <constraint firstItem="tIX-kc-Arb" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="hoW-H6-Nbh"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
+                    <connections>
+                        <outlet property="keywordTextField" destination="CGJ-WV-gyx" id="EQ4-Yl-oPR"/>
+                        <outlet property="perPageTextField" destination="W0G-Ky-FKY" id="Cl4-Oh-GBb"/>
+                        <outlet property="searchButton" destination="tIX-kc-Arb" id="pSM-YR-5jO"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>

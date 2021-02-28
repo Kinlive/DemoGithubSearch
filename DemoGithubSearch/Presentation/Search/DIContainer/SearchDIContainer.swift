@@ -11,6 +11,7 @@ import UIKit
 protocol SearchDIContainerFactory {
   func makeSearchCoordinator(at navigationController: UINavigationController) -> SearchCoordinator
   func makeSearchViewModel() -> SearchViewModel
+  func makeUseCases() -> UseCases
 }
 
 class SearchDIContainer: SearchDIContainerFactory {
@@ -27,7 +28,11 @@ class SearchDIContainer: SearchDIContainerFactory {
   }
 
   func makeSearchViewModel() -> SearchViewModel {
-    return DefaultSearchViewModel()
+    return DefaultSearchViewModel(useCases: makeUseCases())
+  }
+
+  func makeUseCases() -> UseCases {
+    return UseCases(search: DefaultSearchUseCase(dependencies: dependencies))
   }
 }
 

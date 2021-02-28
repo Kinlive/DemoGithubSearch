@@ -8,10 +8,14 @@
 
 import Foundation
 
+protocol HasGithubService {
+  var githubService: GithubService<GithubAPI> { get }
+}
+struct AppDependency: HasGithubService {
 
-struct AppDependency {
+  var githubService: GithubService<GithubAPI>
 
-  init() {
-
+  init(service: GithubService<GithubAPI>) {
+    self.githubService = service
   }
 }

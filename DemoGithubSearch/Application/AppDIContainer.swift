@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import Moya
 
 protocol AppDIContainerFactory {
   func makeSearchDIContainer() -> SearchDIContainer
@@ -19,6 +20,8 @@ class AppDIContainer: AppDIContainerFactory {
   }
 
   func makeSearchDIContainer() -> SearchDIContainer {
-    return SearchDIContainer(dependencies: AppDependency())
+
+    let service = GithubService<GithubAPI>(provider: MoyaProvider())
+    return SearchDIContainer(dependencies: AppDependency(service: service))
   }
 }
