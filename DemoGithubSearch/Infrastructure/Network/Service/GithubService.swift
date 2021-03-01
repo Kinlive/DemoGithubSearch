@@ -9,10 +9,6 @@
 import Foundation
 import Moya
 
-/** Implemented service with protocol BaseService
-
-    Create other service inherit the DefaultService that generic type to conform **Moya.TargetType**, **BaseResponseDTO**, **BaseEntities** to assign your query object, response data transfer objects and final converted domain objects
- */
 class GithubService<TargetTypeT: TargetType>: BaseService {
 
   typealias TargetTypeBase = TargetTypeT

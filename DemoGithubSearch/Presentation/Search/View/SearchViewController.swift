@@ -21,7 +21,6 @@ class SearchViewController: UIViewController {
   }
 
   @IBOutlet weak var keywordTextField: UITextField!
-  @IBOutlet weak var perPageTextField: UITextField!
   @IBOutlet weak var searchButton: UIButton!
 
   var bag = DisposeBag()
@@ -35,37 +34,21 @@ class SearchViewController: UIViewController {
 
   private func bindViewModel() {
 
-    let perPage = perPageTextField.rx.text.orEmpty.asObservable().share()
     let keyword = keywordTextField.rx.text.orEmpty.asObservable().share()
 
     let input = SearchViewModelInput(
       page: Observable.just(1),
-      perPage: perPage.map { NSString(string: $0).integerValue },
+      perPage: Observable.just(8),
       keyword: keyword,
       startSearch: searchButton.rx.controlEvent(.touchUpInside).asObservable()
     )
 
-    Observable.combineLatest(
-      perPageTextField.rx.text,
-      keywordTextField.rx.text
-    )
-      .map { (keyword, perPage) in !(keyword?.isEmpty ?? true || perPage?.isEmpty ?? true) }
+    keywordTextField.rx.text
+      .map { keyword in !(keyword?.isEmpty ?? true) }
       .bind(to: searchButton.rx.isEnabled)
       .disposed(by: bag)
 
-    let output = viewModel.transform(input: input)
-
-    output.users
-      .subscribe(onNext: { users in
-        print(users)
-      })
-      .disposed(by: bag)
-
-    output.headers
-      .subscribe(onNext: { headers in
-        print(headers)
-      })
-      .disposed(by: bag)
+    _ = viewModel.transform(input: input)
   }
 }
 

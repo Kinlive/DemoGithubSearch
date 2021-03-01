@@ -10,6 +10,9 @@ import Foundation
 import RxSwift
 
 
+struct SearchActions {
+  let showList: (UsersQuery) -> Void
+}
 struct SearchViewModelInput {
   let page: Observable<Int>
   let perPage: Observable<Int>
@@ -18,8 +21,6 @@ struct SearchViewModelInput {
 }
 
 struct SearchViewModelOutput {
-  let users: Observable<Users>
-  let headers: Observable<[HeadersField]>
 }
 protocol SearchViewModel {
   func transform(input: SearchViewModelInput) -> SearchViewModelOutput
@@ -29,28 +30,30 @@ final class DefaultSearchViewModel: SearchViewModel {
 
   typealias UseCase = HasSearchUseCase
 
-  let useCases: UseCase
+  private let useCases: UseCase
+  private let actions: SearchActions
+  private let bag = DisposeBag()
 
-  init(useCases: UseCase) {
+  init(useCases: UseCase, actions: SearchActions) {
     self.useCases = useCases
+    self.actions = actions
   }
 
   func transform(input: SearchViewModelInput) -> SearchViewModelOutput {
 
-    let searched = Observable.combineLatest(
+    Observable.combineLatest(
       input.perPage,
       input.keyword,
       input.page
     )
       .sample(input.startSearch)
       .map { perPage, keyword, page in UsersQuery(searchText: keyword, perPage: perPage, page: page) }
-      .flatMap { [weak self] query in self?.searchUseCase(query: query) ?? .empty() }
-      .share()
+      .subscribe(onNext: { [weak self] query in
+        self?.actions.showList(query)
+      })
+      .disposed(by: bag)
 
-    let users = searched.map { $0.users }
-    let headers = searched.map { $0.headers }
-
-    return SearchViewModelOutput(users: users, headers: headers)
+    return SearchViewModelOutput()
   }
 
   private func searchUseCase(query: UsersQuery) -> Observable<UsersAndHeaders> {

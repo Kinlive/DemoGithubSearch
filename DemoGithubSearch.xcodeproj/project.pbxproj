@@ -35,6 +35,8 @@
 		116AB07B25EB93A7008CF4BE /* GithubAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 116AB07A25EB93A7008CF4BE /* GithubAPI.swift */; };
 		116AB07D25EB9CB7008CF4BE /* HeadersField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 116AB07C25EB9CB7008CF4BE /* HeadersField.swift */; };
 		116AB07F25EBB4FA008CF4BE /* SearchUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 116AB07E25EBB4FA008CF4BE /* SearchUseCase.swift */; };
+		116AB08225ECC531008CF4BE /* ListSectionHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 116AB08125ECC531008CF4BE /* ListSectionHeader.swift */; };
+		116AB08625ECC7C0008CF4BE /* UserCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 116AB08525ECC7C0008CF4BE /* UserCell.swift */; };
 		ECCA952EAEA8384CA4178C7A /* Pods_DemoGithubSearch.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A9F4BFF754D0DDA2D34B04BB /* Pods_DemoGithubSearch.framework */; };
 /* End PBXBuildFile section */
 
@@ -69,6 +71,8 @@
 		116AB07A25EB93A7008CF4BE /* GithubAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GithubAPI.swift; sourceTree = "<group>"; };
 		116AB07C25EB9CB7008CF4BE /* HeadersField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeadersField.swift; sourceTree = "<group>"; };
 		116AB07E25EBB4FA008CF4BE /* SearchUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchUseCase.swift; sourceTree = "<group>"; };
+		116AB08125ECC531008CF4BE /* ListSectionHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListSectionHeader.swift; sourceTree = "<group>"; };
+		116AB08525ECC7C0008CF4BE /* UserCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserCell.swift; sourceTree = "<group>"; };
 		7391B7510B10054FAD52FACE /* Pods-DemoGithubSearch.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DemoGithubSearch.release.xcconfig"; path = "Target Support Files/Pods-DemoGithubSearch/Pods-DemoGithubSearch.release.xcconfig"; sourceTree = "<group>"; };
 		A9F4BFF754D0DDA2D34B04BB /* Pods_DemoGithubSearch.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DemoGithubSearch.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B02581845B83326E425B21DB /* Pods-DemoGithubSearch.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DemoGithubSearch.debug.xcconfig"; path = "Target Support Files/Pods-DemoGithubSearch/Pods-DemoGithubSearch.debug.xcconfig"; sourceTree = "<group>"; };
@@ -251,6 +255,7 @@
 		116AB04725EAA353008CF4BE /* View */ = {
 			isa = PBXGroup;
 			children = (
+				116AB08025ECC51D008CF4BE /* Cell */,
 				116AB05125EAA95D008CF4BE /* ListViewController.swift */,
 			);
 			path = View;
@@ -322,6 +327,15 @@
 				116AB07A25EB93A7008CF4BE /* GithubAPI.swift */,
 			);
 			path = GithubAPI;
+			sourceTree = "<group>";
+		};
+		116AB08025ECC51D008CF4BE /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				116AB08125ECC531008CF4BE /* ListSectionHeader.swift */,
+				116AB08525ECC7C0008CF4BE /* UserCell.swift */,
+			);
+			path = Cell;
 			sourceTree = "<group>";
 		};
 		A81B93714937E0B42E7EF342 /* Pods */ = {
@@ -461,6 +475,7 @@
 				116AB04A25EAA401008CF4BE /* SearchViewModel.swift in Sources */,
 				116AB06025EB6BAD008CF4BE /* ListDIContainer.swift in Sources */,
 				116AB03C25EAA0A8008CF4BE /* AppFlowCoordinator.swift in Sources */,
+				116AB08625ECC7C0008CF4BE /* UserCell.swift in Sources */,
 				116AB05E25EB6B6B008CF4BE /* ListCoordinator.swift in Sources */,
 				116AB04125EAA1EA008CF4BE /* AppDIContainer.swift in Sources */,
 				116AB07D25EB9CB7008CF4BE /* HeadersField.swift in Sources */,
@@ -474,6 +489,7 @@
 				116AB07325EB7C17008CF4BE /* EncodableExtension.swift in Sources */,
 				116AB07B25EB93A7008CF4BE /* GithubAPI.swift in Sources */,
 				116AB04425EAA2A7008CF4BE /* UIViewController+Rx.swift in Sources */,
+				116AB08225ECC531008CF4BE /* ListSectionHeader.swift in Sources */,
 				116AB05425EB6AE2008CF4BE /* UseCases.swift in Sources */,
 				116AB04E25EAA8DB008CF4BE /* ListViewModel.swift in Sources */,
 				116AB07F25EBB4FA008CF4BE /* SearchUseCase.swift in Sources */,

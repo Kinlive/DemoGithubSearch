@@ -10,7 +10,7 @@ import UIKit
 
 protocol SearchDIContainerFactory {
   func makeSearchCoordinator(at navigationController: UINavigationController) -> SearchCoordinator
-  func makeSearchViewModel() -> SearchViewModel
+  func makeSearchViewModel(actions: SearchActions) -> SearchViewModel
   func makeUseCases() -> UseCases
 }
 
@@ -27,8 +27,8 @@ class SearchDIContainer: SearchDIContainerFactory {
     return SearchCoordinator(navigationController: navigationController, dependencies: self)
   }
 
-  func makeSearchViewModel() -> SearchViewModel {
-    return DefaultSearchViewModel(useCases: makeUseCases())
+  func makeSearchViewModel(actions: SearchActions) -> SearchViewModel {
+    return DefaultSearchViewModel(useCases: makeUseCases(), actions: actions)
   }
 
   func makeUseCases() -> UseCases {
@@ -37,7 +37,12 @@ class SearchDIContainer: SearchDIContainerFactory {
 }
 
 extension SearchDIContainer: SearchCoordinatorDependency {
-  func makeSearchViewController() -> SearchViewController {
-    return SearchViewController.instantiate(viewModel: makeSearchViewModel())
+  func makeSearchViewController(actions: SearchActions) -> SearchViewController {
+    return SearchViewController.instantiate(viewModel: makeSearchViewModel(actions: actions))
   }
+
+  func makeListDIContainer(passValue: UsersQuery) -> ListDIContainer {
+    return ListDIContainer(dependencies: dependencies, passValue: passValue)
+  }
+
 }

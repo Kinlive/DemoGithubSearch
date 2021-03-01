@@ -16,47 +16,91 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="CGJ-WV-gyx" userLabel="keywordTextField">
-                                <rect key="frame" x="132" y="94" width="150" height="34"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="150" id="Ggk-Ei-fnG"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="W0G-Ky-FKY" userLabel="perPageTextField">
-                                <rect key="frame" x="132" y="153" width="150" height="34"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="150" id="7en-hW-8Zz"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tIX-kc-Arb">
-                                <rect key="frame" x="183" y="433" width="48" height="30"/>
-                                <state key="normal" title="Search"/>
+                                <rect key="frame" x="132" y="433" width="150" height="30"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="150" id="AHb-Wl-bBv"/>
+                                    <constraint firstAttribute="height" constant="30" id="H6F-Ue-jbE"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="PingFangTC-Semibold" family="PingFang TC" pointSize="25"/>
+                                <state key="normal" title="搜尋">
+                                    <color key="titleColor" systemColor="systemBlueColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <state key="disabled">
+                                    <color key="titleColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="搜尋關鍵字" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FAY-q2-Q0h">
+                                <rect key="frame" x="103.5" y="74" width="207" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="search keyword" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="CGJ-WV-gyx" userLabel="keywordTextField">
+                                <rect key="frame" x="103.5" y="100" width="207" height="34"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
-                            <constraint firstItem="CGJ-WV-gyx" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="50" id="GON-PK-s7y"/>
+                            <constraint firstItem="FAY-q2-Q0h" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="23B-Ze-o7I"/>
+                            <constraint firstItem="FAY-q2-Q0h" firstAttribute="width" secondItem="CGJ-WV-gyx" secondAttribute="width" id="ECb-SA-8Cf"/>
                             <constraint firstItem="tIX-kc-Arb" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="Ggd-rq-YE4"/>
-                            <constraint firstItem="W0G-Ky-FKY" firstAttribute="centerX" secondItem="CGJ-WV-gyx" secondAttribute="centerX" id="SJI-rc-eyp"/>
-                            <constraint firstItem="W0G-Ky-FKY" firstAttribute="top" secondItem="CGJ-WV-gyx" secondAttribute="bottom" constant="25" id="Wov-zI-IeO"/>
+                            <constraint firstItem="FAY-q2-Q0h" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="30" id="QEW-So-5U2"/>
                             <constraint firstItem="CGJ-WV-gyx" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="aIt-GX-Hcj"/>
                             <constraint firstItem="tIX-kc-Arb" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="hoW-H6-Nbh"/>
+                            <constraint firstItem="CGJ-WV-gyx" firstAttribute="top" secondItem="FAY-q2-Q0h" secondAttribute="bottom" constant="5" id="lWp-dA-x3G"/>
+                            <constraint firstItem="CGJ-WV-gyx" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" multiplier="0.5" id="wJB-1n-6Q7"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <connections>
                         <outlet property="keywordTextField" destination="CGJ-WV-gyx" id="EQ4-Yl-oPR"/>
-                        <outlet property="perPageTextField" destination="W0G-Ky-FKY" id="Cl4-Oh-GBb"/>
                         <outlet property="searchButton" destination="tIX-kc-Arb" id="pSM-YR-5jO"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="139" y="102"/>
+        </scene>
+        <!--List View Controller-->
+        <scene sceneID="qNo-Lr-0SZ">
+            <objects>
+                <viewController storyboardIdentifier="ListViewController" id="tOX-ID-nFs" customClass="ListViewController" customModule="DemoGithubSearch" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="ygI-yM-ubY">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="QtR-FN-OKe" userLabel="listCollectionView">
+                                <rect key="frame" x="15" y="74" width="384" height="773"/>
+                                <color key="backgroundColor" systemColor="systemGray6Color" red="0.94901960780000005" green="0.94901960780000005" blue="0.96862745100000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="iEF-NF-DLC">
+                                    <size key="itemSize" width="128" height="128"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells/>
+                            </collectionView>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="QtR-FN-OKe" firstAttribute="leading" secondItem="h8o-1A-pqx" secondAttribute="leading" constant="15" id="7iu-ie-1nD"/>
+                            <constraint firstItem="QtR-FN-OKe" firstAttribute="top" secondItem="h8o-1A-pqx" secondAttribute="top" constant="30" id="Xsr-Cw-02m"/>
+                            <constraint firstItem="h8o-1A-pqx" firstAttribute="bottom" secondItem="QtR-FN-OKe" secondAttribute="bottom" constant="15" id="g6H-CH-yxJ"/>
+                            <constraint firstItem="h8o-1A-pqx" firstAttribute="trailing" secondItem="QtR-FN-OKe" secondAttribute="trailing" constant="15" id="hDU-zB-geR"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="h8o-1A-pqx"/>
+                    </view>
+                    <connections>
+                        <outlet property="listCollectionView" destination="QtR-FN-OKe" id="ysS-g1-2Lq"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="5FN-GH-a8r" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="891" y="102"/>
         </scene>
     </scenes>
 </document>
